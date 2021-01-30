@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+        /* UI Object 가로 */
+        .h_graph ul{margin:0 50px 0 50px;padding:1px 0 0 0;border:1px solid #ddd;border-top:0;border-right:0;font-size:11px;font-family:Tahoma, Geneva, sans-serif;list-style:none}
+        .h_graph li{position:relative;margin:10px 0;vertical-align:top;white-space:nowrap}
+        .h_graph .g_term{position:absolute;top:0;left:-50px;width:40px;font-weight:bold;color:#767676;line-height:20px;text-align:right}
+        .h_graph .g_bar{display:inline-block;position:relative;height:20px;border:1px solid #ccc;border-left:0;background:#e9e9e9}
+        .h_graph .g_bar span{position:absolute;top:0;right:-50px;width:40px;color:#767676;line-height:20px}
+        /* //UI Object */
+        </style>
         <meta name="naver-site-verification" content="550c0d076d9d380c121f33e7bb4afd08c37a0ee5" />
         <meta name="naver-site-verification" content="8698e5de3d782dcbe68eebb2634c61966bb87605" />
         <!-- Required meta tags -->
@@ -216,9 +225,30 @@
                         resultMessaege = '알수 없음';
                 }
                 $('.reuslt-message').html(resultMessaege);
+                var barwidth;
+                for(let i =0; i<maxPredictions; i++) {
+                    prediction[i].probability *= 100;
+                }
                 for (let i = 0; i < maxPredictions; i++) {
+                    var label;
+                    switch (prediction[i].className) {
+                    case 'rose':
+                        label = '로제';
+                        // code a block
+                        break;
+                    case 'jennie':
+                        label = '제니';
+                        break;
+                    case 'jisoo':
+                        label = '지수';
+                        break;
+                    case 'lisa':
+                        label = '리사';
+                        break;
+                    default:
+                          }
                     const classPrediction =
-                        prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
+                          label + " : " + prediction[i].probability.toFixed(0) + "%";
                     labelContainer.childNodes[i].innerHTML = classPrediction;
                 }
             }
