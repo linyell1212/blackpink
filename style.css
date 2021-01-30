@@ -191,7 +191,7 @@ body {
 }
 .container{
     background-color:#ececec;
-    height:750px;
+    height:600px;
 }
 .file-upload-content {
     text-align: center;
@@ -203,7 +203,7 @@ body {
 }
 @media screen and (max-width:600px) {
     .container {
-        height:650px;
+        height:700px;
     }
 }
 .ppl {
